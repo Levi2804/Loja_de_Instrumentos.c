@@ -13,7 +13,7 @@ int main() {
 
     do {
         menup();
-        printf("Escolha uma op��o: ");
+        printf("Escolha uma Opção: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -38,7 +38,7 @@ int main() {
 
                         do {
                             lojaMenu();
-                            printf("Escolha uma op��o: ");
+                            printf("Escolha uma Opção: ");
                             scanf("%d", &opcaoLoja);
 
                             switch (opcaoLoja) {
@@ -67,12 +67,12 @@ int main() {
                                     break;
 
                                 default:
-                                    printf("Op��o inv�lida! Tente novamente.\n");
+                                    printf("Opção inválida! Tente novamente.\n");
                                     break;
                             }
                         } while (opcaoLoja != 0);
                     } else {
-                        printf("Email ou senha inv�lidos.\n");
+                        printf("Email ou senha inválida.\n");
                     }
                 }
                 break;
@@ -86,7 +86,7 @@ int main() {
                 break;
 
             default:
-                printf("Op��o inv�lida! Tente novamente.\n");
+                printf("Opção inválida! Tente novamente.\n");
                 break;
         }
     } while (opcao != 0);
