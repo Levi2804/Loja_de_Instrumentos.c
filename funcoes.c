@@ -23,7 +23,7 @@ void verCarrinho(struct User* user) {
 	int i;
     printf("\n--- Carrinho de Compras ---\n");
     if (user->cartSize == 0) {
-        printf("Seu carrinho est� vazio.\n");
+        printf("Seu carrinho está vazio.\n");
     } else {
         for (i = 0; i < user->cartSize; i++) {
             printf("%d. %s - R$%.2f\n", i + 1, user->cart[i].nome, user->cart[i].preco);
@@ -33,7 +33,7 @@ void verCarrinho(struct User* user) {
 
 void comprarInstrumento(struct User* user) {
     struct Instrumento instrumentos[8] = {
-        {"Viol�o", 250.00},
+        {"Violão", 250.00},
         {"Guitarra", 1200.00},
         {"Baixo", 800.00},
         {"Teclado", 1500.00},
@@ -59,18 +59,18 @@ void comprarInstrumento(struct User* user) {
             user->cartSize++;
             printf("%s adicionado ao carrinho!\n", instrumentos[escolha - 1].nome);
         } else {
-            printf("Carrinho cheio! N�o � poss�vel adicionar mais instrumentos.\n");
+            printf("Carrinho cheio! Não é possível adicionar mais instrumentos.\n");
         }
     } else if (escolha == 0) {
         printf("Voltando ao menu da loja...\n");
     } else {
-        printf("Op��o inv�lida! Tente novamente.\n");
+        printf("Opção inválida! Tente novamente.\n");
     }
 }
 
 void editarCompra(struct User* user) {
     struct Instrumento instrumentos[8] = {
-        {"Viol�o", 250.00},
+        {"Violão", 250.00},
         {"Guitarra", 1200.00},
         {"Baixo", 800.00},
         {"Teclado", 1500.00},
@@ -84,14 +84,14 @@ void editarCompra(struct User* user) {
 	int i;
 	
     if (user->cartSize == 0) {
-        printf("Seu carrinho est� vazio. N�o h� nada para editar.\n");
+        printf("Seu carrinho está vazio. Não há nada para editar.\n");
         return;
     }
 
     printf("\n--- Editar Compra ---\n");
     verCarrinho(user);
 
-    printf("Escolha o n�mero do instrumento que deseja substituir (0 para voltar): ");
+    printf("Escolha o número do instrumento que deseja substituir (0 para voltar): ");
     scanf("%d", &substituir);
 
     if (substituir == 0) {
@@ -100,7 +100,7 @@ void editarCompra(struct User* user) {
     }
 
     if (substituir < 1 || substituir > user->cartSize) {
-        printf("Op��o inv�lida! Tente novamente.\n");
+        printf("Opção inválida! Tente novamente.\n");
         return;
     }
 
@@ -117,12 +117,12 @@ void editarCompra(struct User* user) {
     }
 
     if (novoInstrumento < 1 || novoInstrumento > 8) {
-        printf("Op��o inv�lida! Tente novamente.\n");
+        printf("Opção inválida! Tente novamente.\n");
         return;
     }
 
     user->cart[substituir - 1] = instrumentos[novoInstrumento - 1];
-    printf("%s substitu�do por %s no carrinho!\n", user->cart[substituir - 1].nome, instrumentos[novoInstrumento - 1].nome);
+    printf("%s substituído por %s no carrinho!\n", user->cart[substituir - 1].nome, instrumentos[novoInstrumento - 1].nome);
 }
 
 void excluirInstrumento(struct User* user) {
@@ -130,14 +130,14 @@ void excluirInstrumento(struct User* user) {
     int i;
 
     if (user->cartSize == 0) {
-        printf("Seu carrinho est� vazio. N�o h� nada para excluir.\n");
+        printf("Seu carrinho está vazio. Não há nada para excluir.\n");
         return;
     }
 
     printf("\n--- Excluir Instrumento ---\n");
     verCarrinho(user);
 
-    printf("Escolha o n�mero do instrumento que deseja excluir (0 para voltar): ");
+    printf("Escolha o número do instrumento que deseja excluir (0 para voltar): ");
     scanf("%d", &escolha);
 
     if (escolha == 0) {
@@ -146,7 +146,7 @@ void excluirInstrumento(struct User* user) {
     }
 
     if (escolha < 1 || escolha > user->cartSize) {
-        printf("Op��o inv�lida! Tente novamente.\n");
+        printf("Opção inválida! Tente novamente.\n");
         return;
     }
 
@@ -155,7 +155,7 @@ void excluirInstrumento(struct User* user) {
     }
     user->cartSize--;
 
-    printf("Instrumento exclu�do com sucesso!\n");
+    printf("Instrumento excluído com sucesso!\n");
 }
 
 void finalizarCompra(struct User* user) {
@@ -163,7 +163,7 @@ void finalizarCompra(struct User* user) {
     int i;
 
     if (user->cartSize == 0) {
-        printf("Seu carrinho est� vazio. N�o h� nada para finalizar.\n");
+        printf("Seu carrinho está vazio. Não há nada para finalizar.\n");
         return;
     }
 
@@ -184,18 +184,18 @@ void finalizarCompra(struct User* user) {
 int validarEmail(struct User* v, int qtd, char email[]) {
 	int i;
     if (strchr(email, '@') == NULL) {
-        printf("Email inv�lido: n�o cont�m '@'.\n");
+        printf("Email inválido: não contém '@'.\n");
         return 0;
     }
 
     if (strlen(email) >= 80) {
-        printf("Email inv�lido: o e-mail deve ter menos de 80 caracteres.\n");
+        printf("Email inválido: o e-mail deve ter menos de 80 caracteres.\n");
         return 0;
     }
 
     for (i = 0; i < qtd; i++) {
         if (strcmp(v[i].email, email) == 0) {
-            printf("Email inv�lido: j� existe um usu�rio cadastrado com este e-mail.\n");
+            printf("Email inválido: já existe um usuário cadastrado com este e-mail.\n");
             return 0;
         }
     }
@@ -206,7 +206,7 @@ int validarEmail(struct User* v, int qtd, char email[]) {
 void cadastrar(struct User* v, int* qtd) {
     char tempEmail[80];
 
-    printf("Informe o nome do usu�rio: \n");
+    printf("Informe o nome do usuário: \n");
     scanf(" %[^\n]", v[*qtd].name);
 
     do {
@@ -216,7 +216,7 @@ void cadastrar(struct User* v, int* qtd) {
 
     strcpy(v[*qtd].email, tempEmail);
 
-    printf("Informe a senha do usu�rio: \n");
+    printf("Informe a senha do usuário: \n");
     scanf("%s", v[*qtd].pass);
 
     v[*qtd].cartSize = 0;
